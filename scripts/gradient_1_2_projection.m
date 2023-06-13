@@ -55,11 +55,7 @@ for k = 1:N/dt
     Phi(:,k)   = [phi_1(k); phi_2(k)];
     m2          = 1 + alpha*Phi(:,k)'*Phi(:,k);
     erro(k+1)   = (z(k) - theta(:,k)'*Phi(:,k))/m2;
-    %m2_b = 1 + alpha*phi_1(k)*phi_1(k);
-    %m2_a = 1 + alpha*phi_2(k)*phi_2(k);
-    %erro_b(k+1) = (z(k) - theta(1,k)'*phi_1(k))/m2_b;
-    %erro_a(k+1) = (z(k) - theta(2,k)'*phi_2(k))/m2_a;
-    %theta(:,k+1) = theta(:,k) + Gamma*dt*erro(k+1)*Phi(:,k);
+    
     % Projecao
     if ((theta(1,k) > 1) || ((theta(1,k) == 1) && (gamma_1 * erro(k+1) * phi_1 >= 0)))
       theta(1,k+1) = theta(1,k) + gamma_1 * dt * erro(k+1) * phi_1(k);
