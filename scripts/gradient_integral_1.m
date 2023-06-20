@@ -54,18 +54,11 @@ theta_2_star = 1;
 theta_1_star = theta_1_star * ones(1, length(T));
 theta_2_star = theta_2_star * ones(1, length(T));
 
-beta = 0.1; %para função de custo integral
+beta = 0.1; %para funÃ§Ã£o de custo integral
 
 q(:,1) = [0;0];
 R(:,:,1) = [0 0; 0 0];
 
-##for k = 1:N/dt
-##    omega(:,k) = [Y(k); r(k)];
-##    Phi(:,k)   = [phi_1(k); phi_2(k)];
-##    m2          = 1 + alpha*Phi(:,k)'*Phi(:,k);
-##    erro(k+1)   = (z(k) - theta(:,k)'*Phi(:,k))/m2;
-##    theta(:,k+1) = theta(:,k) + Gamma*dt*erro(k+1)*Phi(:,k);
-##end
 for k = 1:N/dt
    Phi(:,k)   = [phi_1(k); phi_2(k)];
    m2          = 1 + alpha*Phi(:,k)'*Phi(:,k);
